@@ -14,14 +14,16 @@ const App = () => {
     }
   })
 
+  const baseUrl = "https://my-json-server.typicode.com/srisomanjali18/Kanban/tasks";
+
   useEffect(() => {
-    fetch('http://localhost:3000/tasks').then((res) => res.json()).then((data) => {
+    fetch(baseUrl).then((res) => res.json()).then((data) => {
       setTasks(data)
     })
   }, [])
 
   const updateTaskTitle = (task: Task) => {
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
+    fetch(`${baseUrl}/${task.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +38,7 @@ const App = () => {
   }
 
   const updateTaskStatus = (task: Task, status: Status) => {
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
+    fetch(`${baseUrl}/${task.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -83,5 +85,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App;
