@@ -35,6 +35,7 @@ const App = () => {
       return t.id === task.id ? task : t;
     })
     setTasks(updatedTasks);
+    
   }
 
   const updateTaskStatus = (task: Task, status: Status) => {
